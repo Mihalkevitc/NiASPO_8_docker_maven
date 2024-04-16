@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 RUN mvn clean package
 
 # Отдельный этап для запуска приложения
-FROM adoptopenjdk/openjdk17:alpine-jre
+FROM openjdk:17-alpine
 
 # Копируем JAR файл из предыдущего этапа
 COPY --from=build /usr/src/app/target/my-app.jar /usr/app/my-app.jar
